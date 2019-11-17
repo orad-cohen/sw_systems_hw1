@@ -8,10 +8,16 @@ double Pow(double x, int y){
     }
     double ans = x;
     int i;
+    if(y<0){
+      y*=-1;
+    }
     for(i =1; i<y; i = i+1){
         ans = ans *x;
-        
 
+
+    }
+    if(y<0){
+      ans=1/ans;
     }
     return ans;
 }
