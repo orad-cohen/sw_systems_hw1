@@ -5,10 +5,6 @@ FLAGS= -Wall -g -fPIC
 
 all: libmyMath.so libmyMath.a mains maind
 
-mymathd: libmyMath.so
-
-mymaths: libmyMath.a
-
 mains:	$(OBJECTS_MAIN) libmyMath.a 
 	$(CC) $(FLAGS) -o mains $(OBJECTS_MAIN) libmyMath.a
 
@@ -31,7 +27,11 @@ main.o: main.c myMath.h
 	$(CC) $(FLAGS) -c main.c
 
 
-.PHONY: clean all
+.PHONY: clean all mymathd mymaths
+
+mymathd: libmyMath.so
+
+mymaths: libmyMath.a
 
 clean:
 	rm -f *.o *.a *.so mains maind
